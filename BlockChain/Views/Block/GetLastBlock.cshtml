@@ -1,0 +1,62 @@
+﻿@model BlockChain.Models.Chains.Block?
+
+
+@{
+    // foreach (var model in Model)
+    {
+        var block = Model;
+        var blockId = block.id;
+        var blockValidCount = block.validCount;
+        var blockGenesis = block.genesisBlock == true ? "Блок-родитель" : "Дочерний блок";
+        var prevHash = block.prevHash;
+        var curHash = block.curHash;
+        var blockActions = block.actions;
+        <div class="block">
+            <h3 class="block__title">@blockGenesis id:@blockId</h3>
+            <div class="block__content">
+                <p>
+                    Предыдущий хэш: @prevHash
+                </p>
+                <p>
+                    Текущий хэш: @curHash
+                </p>
+                <p>
+                    Кол-во обработчиков: @blockValidCount
+                </p>
+            </div>
+            <h4>Операции блока</h4>
+            <div class="block__actions">
+                @foreach (var blockAction in blockActions.Select(action => action.BlockActions))
+                {
+                    <div class="block__actions__item">
+                        <h5 class="block__actions__item__title">
+                            @(blockAction.typeTask == "custom" ? "Сообщение" : "Транзакция")
+                        </h5>
+                        <div class="block__actions__item__content">
+                            <p class="block__actions__item__content__text">
+                                Отправитель: @blockAction.sender.user
+                            </p>
+                            <p class="block__actions__item__content__text">
+                                Получатель: @blockAction.receiver
+                            </p>
+                            @if (blockAction.typeTask.Contains("coins"))
+                            {
+                                <p class="block__actions__item__content__text">
+                                    Кол-во монет: @blockAction.coinsCount
+                                </p>
+                            }
+                            @if (blockAction.messageData is not null)
+                            {
+                                <p class="block__actions__item__content__text">
+                                    Текст сообщения: @blockAction.messageData.action
+                                </p>
+                            }
+
+
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+}
