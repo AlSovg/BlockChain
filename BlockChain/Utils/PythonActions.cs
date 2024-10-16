@@ -12,12 +12,12 @@ public class PythonActions
             string fileContent = File.ReadAllText(filename);
             fileContent = fileContent.Replace(
                 fileContent.Split('\n').FirstOrDefault(line => line.Contains("username =")),
-                $"username = '{newUserData.UserName}'"
+                $"username = '{newUserData.username}'"
             );
 
             fileContent = fileContent.Replace(
                 fileContent.Split('\n').FirstOrDefault(line => line.Contains("password =")),
-                $"password = '{newUserData.Password}'"
+                $"password = '{newUserData.password}'"
             );
             File.WriteAllText(filename, fileContent);
             return true;

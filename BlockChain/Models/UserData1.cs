@@ -1,15 +1,16 @@
 ﻿using System.Text.Json.Serialization;
+using BlockChain.Models.Tasks;
 
 namespace BlockChain.Models;
 
-public class UserData : AuthData
+public class UserData1 : AuthData
 {
     [JsonPropertyName("user_hash")]
     public string user_hash { get; set; } = string.Empty;
     
-    [JsonPropertyName("hach_version_file")]
+    [JsonPropertyName("version")]
     public string hach_version_file { get; set; } = string.Empty;
     
     [JsonPropertyName("data")]
-    public string data { get; set; } = string.Empty;
+    public SendCoinsTask data { get; set; }
 }

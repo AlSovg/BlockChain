@@ -1,0 +1,40 @@
+﻿@model AuthData
+
+@using (Html.BeginForm("Register", "Auth", FormMethod.Post, new
+{
+@class = "form absolute-center",
+id="registerForm"
+}))
+{
+<h1 class="form__title">Регистрация</h1>
+<div class="form__group">
+    @Html.LabelFor(m => m.username, new
+    {
+    @class = "form__label"
+    })
+    @Html.TextBoxFor(m => m.username, new
+    {
+    @class = "form__input",
+    type = "text",
+    placeholder = "Введите логин"
+    })
+</div>
+<div class="form__group">
+    @Html.LabelFor(m => m.password, new
+    {
+    @class = "form__label"
+    })
+    @Html.TextBoxFor(m => m.password, new
+    {
+    @class = "form__input",
+    type = "text",
+    placeholder = "Введите пароль"
+    })
+</div>
+<button
+    class="form__btn"
+    type="button"
+    onclick="register()">
+    Зарегистрироваться
+</button>
+}

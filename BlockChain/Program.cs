@@ -1,8 +1,22 @@
+using BlockChain.Repository;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDistributedMemoryCache();
+builder.Services.AddHttpClient<UserRepository>();
+builder.Services.AddHttpClient<TaskRepository>();
+builder.Services.AddHttpClient<BlockRepository>();
+builder.Services.AddHttpClient<AuthRepository>();
+
+builder.Services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+builder.Services.AddTransient<UserRepository>();
+builder.Services.AddTransient<TaskRepository>();
+builder.Services.AddTransient<BlockRepository>();
+builder.Services.AddTransient<AuthRepository>();
 
 builder.Services.AddSession(options =>
 {

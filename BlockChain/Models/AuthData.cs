@@ -1,12 +1,15 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace BlockChain.Models;
 
 public class AuthData
 {
+    [Display(Name = "Логин")]
     [JsonPropertyName("username")]
-    public string UserName { get; set; } = string.Empty;
+    public string username { get; set; } = string.Empty;
     
+    [Display(Name = "Пароль")]
     [JsonPropertyName("password")]
-    public string Password { get; set; } = string.Empty;
+    public string password { get; set; } = string.Empty;
 }

@@ -1,39 +1,11 @@
 ﻿@model dynamic
+<link rel="stylesheet" href="~/css/bootstrap.css"/>
 <link rel="stylesheet" href="~/css/common.css"/>
 
-<form class="form absolute-center">
-    <h1 class="form__title">Авторизация</h1>
-    <div class="form__group">
-        <label class="form__label">Логин</label>
-        <input
-            class="form__input"
-            type="text"
-            name="auth_user"
-            id="auth_user"
-            placeholder="Логин"
-            required
-        />
-    </div>
-    <div class="form__group">
-        <label class="form__label">Пароль</label>
-        <input
-            class="form__input"
-            type="password"
-            name="auth_pass"
-            id="auth_pass"
-            placeholder="Пароль"
-            required
-        />
-    </div>
-    <button
-        class="form__btn"
-        type="button"
-        onclick="auth()"
-        name="form_auth_submit"
-    >
-        Войти
-    </button>
-</form>
-
+<div class="alert__bg">
+    <div class="alert__content"></div>
+</div>
+@await Html.PartialAsync("Auth/_AuthForm", new AuthData())
+@await Html.PartialAsync("Auth/_RegisterForm", new AuthData())
 
 <script src="~/js/site.js"></script>

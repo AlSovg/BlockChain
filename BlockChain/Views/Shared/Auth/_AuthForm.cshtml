@@ -1,0 +1,49 @@
+﻿@model AuthData
+
+@using (Html.BeginForm("Login", "Auth", FormMethod.Post, new
+        {
+            @class = "form absolute-center active",
+            id="authForm"
+        }))
+{
+    <h1 class="form__title">Авторизация</h1>
+    <div class="form__group">
+        @Html.LabelFor(m => m.username, new
+        {
+            @class = "form__label"
+        })
+        @Html.TextBoxFor(m => m.username, new
+        {
+            @class = "form__input",
+            type = "text",
+            placeholder = "Введите логин"
+        })
+    </div>
+    <div class="form__group" >
+        @Html.LabelFor(m => m.password, new
+        {
+            @class = "form__label"
+        })
+        @Html.TextBoxFor(m => m.password, new
+        {
+            @class = "form__input",
+            type = "password",
+            placeholder = "Введите пароль"
+        })
+    </div>
+    <div class="form__group" style="display: flex; flex-direction: row; gap: 10px">
+        <button
+            class="form__btn"
+            type="button"
+            onclick="auth()">
+            Войти
+        </button>
+        <button
+            class="form__btn"
+            type="button"
+            onclick="changeForm()">
+            Зарегистрироваться
+        </button>
+    </div>
+  
+}
