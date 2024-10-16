@@ -1,0 +1,9 @@
+﻿@model List<BlockChain.Models.Chains.User>?
+
+@foreach (var user in Model)
+{
+    <div class="user__item">
+        <h3>@user.Id</h3>
+        <p>Кол-во монет: @user.CoinsCollected</p>
+    </div>
+}

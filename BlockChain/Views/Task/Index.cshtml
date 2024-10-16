@@ -1,0 +1,30 @@
+﻿@using System.Text.Json
+@using BlockChain.Models.Tasks
+<link rel="stylesheet" href="~/css/style.css"/>
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+var sessionData = HttpContextAccessor?.HttpContext?.Session.GetString("userInfo");
+var userName = JsonSerializer.Deserialize<UserData1>(sessionData).username;
+}
+
+<header class="header">
+    <div class="header__body">
+        <div class="header__body__balance">
+        </div>
+        <div class="header__body__hrefs">
+            <a class="header__body__hrefs__item" href="/Block">Блоки</a>
+            <a class="header__body__hrefs__item" href="/User">Пользователи</a>
+            <a class="header__body__hrefs__item active" href="/Task">Задачи</a>
+        </div>
+        <div class="header__body__profile">
+            <p class="header__body__profile__name">@userName</p>
+        </div>
+    </div>
+</header>
+<main class="main">
+   @await Html.PartialAsync("Task/_SendCoinsForm", new SendCoinsTask())
+</main>
+<footer class="footer"></footer>
+
+<script src="~/js/task.js">
+</script>

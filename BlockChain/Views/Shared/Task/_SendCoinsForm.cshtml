@@ -1,0 +1,44 @@
+﻿@model BlockChain.Models.Tasks.SendCoinsTask
+
+@using (Html.BeginForm("SendCoins", "Task", FormMethod.Post, new
+        {
+            @class = "form absolute-center active",
+            id="sendForm"
+        }))
+{
+    <h1 class="form__title">Авторизация</h1>
+    <div class="form__group">
+        @Html.LabelFor(m => m.coinsCount, new
+        {
+            @class = "form__label"
+        })
+        @Html.TextBoxFor(m => m.coinsCount, new
+        {
+            @class = "form__input",
+            type = "number",
+            placeholder = "1"
+        })
+    </div>
+    @* <div class="form__group" > *@
+    @*     @Html.LabelFor(m => m.password, new *@
+    @*     { *@
+    @*         @class = "form__label" *@
+    @*     }) *@
+    @*     @Html.TextBoxFor(m => m.password, new *@
+    @*     { *@
+    @*         @class = "form__input", *@
+    @*         type = "password", *@
+    @*         placeholder = "Введите пароль" *@
+    @*     }) *@
+    @* </div> *@
+    <div class="form__group" style="display: flex; flex-direction: row; gap: 10px">
+        <button
+            class="form__btn"
+            type="button"
+            onclick="sendTask()"
+            >
+            Отправить
+        </button>
+    </div>
+  
+}
