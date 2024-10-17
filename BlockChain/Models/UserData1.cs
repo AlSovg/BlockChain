@@ -12,5 +12,5 @@ public class UserData1 : AuthData
     public string hach_version_file { get; set; } = string.Empty;
     
     [JsonPropertyName("data")]
-    public SendCoinsTask data { get; set; }
+    public SendTask data { get; set; }
 }

@@ -1,15 +1,32 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
+using BlockChain.Models.Enums;
+using BlockChain.Utils;
 
 namespace BlockChain.Models.Tasks;
 
 public class SendTask
 {
-    [JsonPropertyName("type_task")] public string typeTask { get; set; } = "send_coins";
+
+    [Display(Name = "Тип задачи")]
+    [JsonPropertyName("type_task")] 
+    [JsonConverter(typeof(CommandTypeConverter))]
+    public CommandType typeTask { get; set; }
     
+    [Display(Name = "Отправитель")]
     [JsonPropertyName("from_hach")]
-    public string reciever { get; set; } = string.Empty;
+    public string Reciever { get; set; } = string.Empty;
     
+    [Display(Name = "Получатель")]
     [JsonPropertyName("to_hach")]
-    public string sender { get; set; } = string.Empty;
+    public string Sender { get; set; } = string.Empty;
+
+    [Display(Name = "Кол-во монет")]
+    [JsonPropertyName("count_coins")] 
+    public int CoinsCount { get; set; } = 0;
+    
+    [Display(Name = "Текст сообщения")]
+    [JsonPropertyName("message")]
+    public string Message { get; set; } = string.Empty;
 }
 

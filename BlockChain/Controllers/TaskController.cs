@@ -27,7 +27,7 @@ public class TaskController : Controller
 
     [Route("sendCoins")]
     [HttpPost]
-    public async Task<IActionResult> SendCoins(SendCoinsTask task)
+    public async Task<IActionResult> SendCoins(SendTask task)
     {
         var model = JsonSerializer.Deserialize<UserData1>(HttpContext.Session.GetString("userInfo"));
         model.data = (task);

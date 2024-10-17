@@ -22,7 +22,7 @@ var userName = JsonSerializer.Deserialize<UserData1>(sessionData).username;
     </div>
 </header>
 <main class="main">
-   @await Html.PartialAsync("Task/_SendCoinsForm", new SendCoinsTask())
+   @await Html.PartialAsync("Task/_SendCoinsForm", new SendTask())
 </main>
 <footer class="footer"></footer>
 
