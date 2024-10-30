@@ -22,6 +22,18 @@ function sendTask() {
         console.log(response)
 
     })
-
-
 }
+document.getElementById('typeTask').addEventListener('change', function() {
+    let typeTask = this.value;
+    let coinsField = document.getElementById('coinsField');
+    let messageField = document.getElementById('messageField');
+
+    if (typeTask === '1') {
+        coinsField.style.display = 'block';
+        messageField.style.display = 'none';
+    } else if (typeTask === '2') {
+        coinsField.style.display = 'none';
+        messageField.style.display = 'block';
+    }
+});
+document.getElementById('typeTask').dispatchEvent(new Event('change'));

@@ -7,8 +7,30 @@
             id = "sendForm"
         }))
 {
-    <h1 class="form__title">Авторизация</h1>
+    <h1 class="form__title">Создание задачи</h1>
     <div class="form__group">
+        @Html.LabelFor(m => m.Sender, new
+        {
+            @class = "form__label"
+        })
+        @Html.TextBoxFor(m => m.Sender, new
+        {
+            @class = "form__input",
+            type = "text",
+            placeholder = "some hash"
+        })
+    </div>
+    <div class="form__group">
+        @Html.LabelFor(m => m.typeTask, new
+        {
+            @class = "form__label"
+        })
+        @Html.DropDownList("typeTask", Html.GetEnumSelectList(typeof(CommandType)), new
+        {
+            @class = "form-select"
+        })
+    </div>
+    <div class="form__group" id="coinsField">
         @Html.LabelFor(m => m.CoinsCount, new
         {
             @class = "form__label"
@@ -20,17 +42,20 @@
             placeholder = "1"
         })
     </div>
-
-    <div class="form__group">
-        @Html.LabelFor(m => m.typeTask, new
+    <div class="form__group" id="messageField">
+        @Html.LabelFor(m => m.Message, new
         {
             @class = "form__label"
         })
-        @Html.DropDownList("typeTask", Html.GetEnumSelectList(typeof(CommandType)), new
+        @Html.TextBoxFor(m => m.Message, new
         {
-            @class = "form-select"
+            @class = "form__input",
+            type = "text",
+            placeholder = "some message"
         })
     </div>
+
+
     <div class="form__group" style="display: flex; flex-direction: row; gap: 10px">
         <button
             class="form__btn"

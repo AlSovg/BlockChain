@@ -1,11 +1,13 @@
-﻿button{
+﻿button {
   cursor: pointer;
 }
-p, h1,h2,h3,h4,h5,h6 {
-  padding: 0 ;
-  margin: 0 ;
+
+p, h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
 }
-.blocks__zone{
+
+.blocks__zone {
   width: 100%;
   height: 100%;
   display: flex;
@@ -13,53 +15,58 @@ p, h1,h2,h3,h4,h5,h6 {
   flex-wrap: wrap;
   gap: 10px;
 }
-.block{
+
+.block {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
 
-
-body{
+body {
   width: 100%;
-  height: 100vh!important;
+  height: 100vh !important;
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  .header{
+
+  .header {
     height: 60px;
-    background-color:  #2284FE80;
+    background-color: #2284FE80;
 
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 0 15px;
-    &__body{
+
+    &__body {
       width: 100%;
       display: flex;
       justify-content: space-between;
-      
-      &__hrefs{
+
+      &__hrefs {
         width: 50%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        &__item{
+
+        &__item {
           color: #ffffff;
           font-size: 20px;
           text-decoration: none;
           border-radius: 10px;
           padding: 5px 10px;
           transition: all .5s;
-          &.active, &:hover{
+
+          &.active, &:hover {
             background-color: #ffffff;
             color: #2284FE80;
           }
         }
       }
-      &__profile, &__balance{
+
+      &__profile, &__balance {
         height: 40px;
         width: fit-content;
         border-radius: 10px;
@@ -68,83 +75,144 @@ body{
         display: flex;
         align-items: center;
         justify-content: center;
-        &__name{
+
+        &__name {
           display: flex;
           align-items: center;
           justify-content: center;
           font-size: 1.3rem;
-          &:before{
+
+          &:before {
             content: '\F4D7';
             font-family: "bootstrap-icons";
             margin-right: 10px;
             font-size: 1.1rem;
           }
         }
-        &__coins{
+
+        &__coins {
           display: flex;
           align-items: center;
           justify-content: center;
           font-size: 1.3rem;
-          &:before{
+
+          &:before {
             content: ' \F634';
             font-family: "bootstrap-icons";
             margin-right: 10px;
             font-size: 1.1rem;
           }
         }
+
+        &-btn {
+          background-color: transparent;
+          border: none;
+          margin: 0;
+          padding: 0 0 0 10px;
+          &:before {
+            
+            content: '\F1C3';
+            font-family: "bootstrap-icons";
+            margin-right: 10px;
+            font-size: 1.1rem;
+          }
+        }
+        
       }
     }
-
-  ;
   }
-  .main{
+
+  .main {
     flex-grow: 1;
     height: calc(100% - 120px);
     padding: 0 10px;
     display: flex;
     flex-direction: column;
     gap: 5px;
+    h3{
+      max-height: 10%;
+    }
   }
-  .footer{
+
+  .footer {
     height: 60px;
     background-color: #2284FE66;
   }
 }
 
 
-.task__list{
+.task__list {
   max-height: calc(100% - 42px);
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   overflow: auto;
   
-  .block{
+  .block {
     width: 100%;
     border: 1px solid #2284FE66;
     border-radius: 10px;
     padding: 10px;
-    &__title{
-      margin: 0 15px;
+
+    &__title {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin: 5px 0 0 0;
+      span{
+        font-size: 1.3rem;
+      }
     }
-    &__content{
+
+    &__content {
       & p {
         width: fit-content;
       }
     }
-    &__actions{
+
+    &__actions {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
       gap: 10px;
-      &__item{
-        background-color:  #2284FE66;
+
+      &__item {
+        background-color: #2284FE66;
         border-radius: 10px;
         padding: 10px;
-        &__title{
+        max-width: calc(50% - 5px);
+
+        &__title {
           margin: 0 5px;
         }
+
+        &__content {
+          &__text {
+            word-break: break-all;
+          }
+        }
       }
-   
+
     }
   }
+}
+
+.user__list{
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 92%;
+  overflow-y: scroll;
+  gap: 10px;
+  &__item{
+    max-width: calc(33% - 4px);
+    background-color: #2284FE66;
+    border-radius: 10px;
+    padding: 10px;
+    h5{
+      word-break: break-all;
+    }
+  }
+}
+.form-select{
+  border: 2px solid #6f767e;
+  margin-bottom: 24px
 }

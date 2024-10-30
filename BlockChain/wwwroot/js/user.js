@@ -13,5 +13,5 @@ fetch("User/getUsers", {
         return response.text();
     }
 ).then(data => {
-    document.querySelector(".task__list").innerHTML= (data)
+    document.querySelector(".user__list").innerHTML= (data)
 })

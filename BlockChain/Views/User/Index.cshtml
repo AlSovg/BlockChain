@@ -5,7 +5,11 @@
 @inject IHttpContextAccessor HttpContextAccessor
 @{
     var sessionData = HttpContextAccessor?.HttpContext?.Session.GetString("userInfo");
-    var userName = JsonSerializer.Deserialize<UserData1>(sessionData).username;
+    var userName = "";
+    if (sessionData != null)
+    {
+        userName = JsonSerializer.Deserialize<UserData1>(sessionData)?.username;
+    }
 }
 
 <header class="header">
@@ -19,12 +23,14 @@
         </div>
         <div class="header__body__profile">
             <p class="header__body__profile__name">@userName</p>
+            <button onclick="window.location.href='/Auth'" class="header__body__profile-btn"></button>
         </div>
     </div>
 </header>
 <main class="main">
-    <div class="task__list">
-        
+    <h3>Пользователи сети</h3>
+    <div class="user__list">
+
     </div>
 </main>
 <footer class="footer"></footer>

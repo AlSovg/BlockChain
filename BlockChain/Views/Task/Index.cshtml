@@ -1,10 +1,15 @@
 ﻿@using System.Text.Json
 @using BlockChain.Models.Tasks
+<link rel="stylesheet" href="~/css/common.css"/>
+<link rel="stylesheet" href="~/css/site.css"/>
 <link rel="stylesheet" href="~/css/style.css"/>
 @inject IHttpContextAccessor HttpContextAccessor
-@{
-var sessionData = HttpContextAccessor?.HttpContext?.Session.GetString("userInfo");
-var userName = JsonSerializer.Deserialize<UserData1>(sessionData).username;
+@{var sessionData = HttpContextAccessor?.HttpContext?.Session.GetString("userInfo");
+  var userName = "";
+  if (sessionData != null)
+  {
+      userName = JsonSerializer.Deserialize<UserData1>(sessionData)?.username;
+  }
 }
 
 <header class="header">
@@ -12,12 +17,16 @@ var userName = JsonSerializer.Deserialize<UserData1>(sessionData).username;
         <div class="header__body__balance">
         </div>
         <div class="header__body__hrefs">
+            @* ReSharper disable once Html.PathError *@
             <a class="header__body__hrefs__item" href="/Block">Блоки</a>
+            @* ReSharper disable once Html.PathError *@
             <a class="header__body__hrefs__item" href="/User">Пользователи</a>
+            @* ReSharper disable once Html.PathError *@
             <a class="header__body__hrefs__item active" href="/Task">Задачи</a>
         </div>
         <div class="header__body__profile">
             <p class="header__body__profile__name">@userName</p>
+            <button onclick="window.location.href='/Auth'" class="header__body__profile-btn"></button>
         </div>
     </div>
 </header>

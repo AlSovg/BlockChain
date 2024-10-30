@@ -2,8 +2,8 @@
 
 @foreach (var user in Model)
 {
-    <div class="user__item">
-        <h3>@user.Id</h3>
+    <div class="user__list__item">
+        <h5>Хэш:@user.hash</h5>
         <p>Кол-во монет: @user.CoinsCollected</p>
     </div>
 }

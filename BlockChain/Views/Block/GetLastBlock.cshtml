@@ -12,18 +12,21 @@
         var curHash = block.curHash;
         var blockActions = block.actions;
         <div class="block">
-            <h3 class="block__title">@blockGenesis id:@blockId</h3>
-            <div class="block__content">
-                <p>
-                    Предыдущий хэш: @prevHash
-                </p>
-                <p>
-                    Текущий хэш: @curHash
-                </p>
-                <p>
+            <h3 class="block__title">
+                @blockGenesis id:@blockId
+                <span>
                     Кол-во обработчиков: @blockValidCount
-                </p>
-            </div>
+                </span>
+            </h3>
+            @* <div class="block__content"> *@
+            @*     $1$ <p> #1# *@
+            @*     $1$     Предыдущий хэш: @prevHash #1# *@
+            @*     $1$ </p> #1# *@
+            @*     $1$ <p> #1# *@
+            @*     $1$     Текущий хэш: @curHash #1# *@
+            @*     $1$ </p> #1# *@
+            @* *@
+            @* </div> *@
             <h4>Операции блока</h4>
             <div class="block__actions">
                 @foreach (var blockAction in blockActions.Select(action => action.BlockActions))

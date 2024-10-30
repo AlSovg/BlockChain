@@ -95,6 +95,18 @@ body .header__body__profile__coins:before, body .header__body__balance__coins:be
   margin-right: 10px;
   font-size: 1.1rem;
 }
+body .header__body__profile-btn, body .header__body__balance-btn {
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0 0 0 10px;
+}
+body .header__body__profile-btn:before, body .header__body__balance-btn:before {
+  content: "\f1c3";
+  font-family: "bootstrap-icons";
+  margin-right: 10px;
+  font-size: 1.1rem;
+}
 body .main {
   flex-grow: 1;
   height: calc(100% - 120px);
@@ -102,6 +114,9 @@ body .main {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+body .main h3 {
+  max-height: 10%;
 }
 body .footer {
   height: 60px;
@@ -122,23 +137,55 @@ body .footer {
   padding: 10px;
 }
 .task__list .block__title {
-  margin: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 5px 0 0 0;
+}
+.task__list .block__title span {
+  font-size: 1.3rem;
 }
 .task__list .block__content p {
   width: fit-content;
 }
 .task__list .block__actions {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 10px;
 }
 .task__list .block__actions__item {
   background-color: rgba(34, 132, 254, 0.4);
   border-radius: 10px;
   padding: 10px;
+  max-width: calc(50% - 5px);
 }
 .task__list .block__actions__item__title {
   margin: 0 5px;
+}
+.task__list .block__actions__item__content__text {
+  word-break: break-all;
+}
+
+.user__list {
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 92%;
+  overflow-y: scroll;
+  gap: 10px;
+}
+.user__list__item {
+  max-width: calc(33% - 4px);
+  background-color: rgba(34, 132, 254, 0.4);
+  border-radius: 10px;
+  padding: 10px;
+}
+.user__list__item h5 {
+  word-break: break-all;
+}
+
+.form-select {
+  border: 2px solid #6f767e;
+  margin-bottom: 24px;
 }
 
 /*# sourceMappingURL=style.css.map */
